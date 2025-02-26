@@ -12,7 +12,7 @@ program
     "Generate files with precise sizes using streaming chunks.\n" +
       "Use cases: Disk testing, benchmark simulations, or creating sample data files."
   )
-  .version("1.0.0", "-v, --version", "Print version information");
+  .version("1.0.1", "-v, --version", "Print version information");
 
 program
   .argument(
