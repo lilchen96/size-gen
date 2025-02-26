@@ -32,27 +32,27 @@ program
     "64KB"
   )
   .action(async (output, options) => {
-    // 校验 1: 输出文件必须包含后缀
+    // Check 1: Output file must include an extension
     const outputExt = path.extname(output);
     if (!outputExt) {
       console.error(
-        "[Error] Missing file extension in output name. Examples: data.bin"
+        "[Error] <output> parameter is invalid: missing file extension. Please provide an output file name with an extension (e.g., data.bin)."
       );
       process.exit(1);
     }
 
-    // 校验 2: 文件大小格式必须符合正则
+    // Check 2: Size format must match the regex
     if (!SIZE_REGEX.test(options.size)) {
       console.error(
-        "[Error] Invalid size format. Valid examples: 2MB, 512KB, 3.5GB, 10B"
+        "[Error] The '--size' (or '-s') parameter is invalid. Please specify a valid file size with a unit (e.g., 10B, 512KB, 2MB, or 3.5GB)."
       );
       process.exit(1);
     }
 
-    // 校验 3: chunk大小格式必须符合正则
+    // Check 3: Chunk format must match the regex
     if (!SIZE_REGEX.test(options.chunk)) {
       console.error(
-        "[Error] Invalid chunk format. Valid examples: 64KB, 1MB, 4MB, 16B"
+        "[Error] The '--chunk' (or '-c') parameter is invalid. Please specify a valid chunk size with a unit (e.g., 64KB, 1MB, 4MB, or 16B)."
       );
       process.exit(1);
     }
